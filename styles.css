@@ -113,29 +113,24 @@ body[data-theme="light"] .site-header {
 .brand-logo-wrap {
   position: relative;
   display: block;
-  width: 118px;
-  height: 118px;
+  width: 150px;
+  height: 150px;
   flex: 0 0 auto;
+  overflow: hidden;
 }
 
 .brand-logo {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  top: 50%;
+  width: 144%;
+  height: 144%;
   object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
-.brand-logo-light {
-  opacity: 0;
-}
-
-body[data-theme="light"] .brand-logo-light {
-  opacity: 1;
-}
-
-body[data-theme="light"] .brand-logo-dark {
-  opacity: 0;
+.brand-logo-symbol {
+  filter: drop-shadow(0 14px 24px rgba(26, 110, 209, 0.18));
 }
 
 .brand-copy {
@@ -727,8 +722,13 @@ body[data-theme="light"] .pulse::after {
   }
 
   .brand-logo-wrap {
-    width: 84px;
-    height: 84px;
+    width: 108px;
+    height: 108px;
+  }
+
+  .brand-logo {
+    width: 140%;
+    height: 140%;
   }
 
   .brand-copy span {
