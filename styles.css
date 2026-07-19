@@ -195,11 +195,11 @@ body[data-theme="light"] .site-header {
   transition: transform 180ms ease;
 }
 
-body[data-theme="dark"] .theme-toggle-track::before {
+body[data-theme="light"] .theme-toggle-track::before {
   transform: translateX(0);
 }
 
-body[data-theme="light"] .theme-toggle-track::before {
+body[data-theme="dark"] .theme-toggle-track::before {
   transform: translateX(calc(100% + 4px));
 }
 
