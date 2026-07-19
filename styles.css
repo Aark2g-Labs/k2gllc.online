@@ -107,28 +107,42 @@ body[data-theme="light"] .site-header {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 18px;
-  background:
-    linear-gradient(135deg, rgba(113, 240, 208, 0.24), rgba(87, 199, 255, 0.18)),
-    rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+.brand-logo-wrap {
+  position: relative;
+  display: block;
+  width: 86px;
+  height: 86px;
+  flex: 0 0 auto;
+}
+
+.brand-logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-logo-light {
+  opacity: 0;
+}
+
+body[data-theme="light"] .brand-logo-light {
+  opacity: 1;
+}
+
+body[data-theme="light"] .brand-logo-dark {
+  opacity: 0;
 }
 
 .brand-copy {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
 }
 
 .brand-copy strong,
@@ -708,6 +722,11 @@ body[data-theme="light"] .pulse::after {
 @media (max-width: 520px) {
   .brand {
     width: 100%;
+  }
+
+  .brand-logo-wrap {
+    width: 68px;
+    height: 68px;
   }
 
   .brand-copy span {
