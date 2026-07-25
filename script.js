@@ -11,19 +11,21 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function syncTheme(theme) {
   document.body.dataset.theme = theme;
-  themeToggle.setAttribute("aria-pressed", String(theme === "light"));
-  themeMeta?.setAttribute("content", theme === "light" ? "#f3f7fb" : "#08111f");
-  siteIcon?.setAttribute("href", theme === "light" ? "./k2gllc-light.png" : "./k2gllc-dark.png");
-  appleTouchIcon?.setAttribute("href", theme === "light" ? "./k2gllc-light.png" : "./k2gllc-dark.png");
+  if (themeToggle) themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+  if (themeMeta) themeMeta.setAttribute("content", theme === "light" ? "#f3f7fb" : "#08111f");
+  if (siteIcon) siteIcon.setAttribute("href", theme === "light" ? "/k2gllc-light.png" : "/k2gllc-dark.png");
+  if (appleTouchIcon) appleTouchIcon.setAttribute("href", theme === "light" ? "/k2gllc-light.png" : "/k2gllc-dark.png");
 }
 
 syncTheme(initialTheme);
 
-themeToggle?.addEventListener("click", () => {
-  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
-  localStorage.setItem("k2g-theme", nextTheme);
-  syncTheme(nextTheme);
-});
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("k2g-theme", nextTheme);
+    syncTheme(nextTheme);
+  });
+}
 
 function updateParallax() {
   if (reduceMotion.matches || window.innerWidth <= 760) {
@@ -58,4 +60,6 @@ window.addEventListener("resize", queueParallax);
 reduceMotion.addEventListener?.("change", queueParallax);
 queueParallax();
 
-yearNode.textContent = new Date().getFullYear();
+if (yearNode) {
+  yearNode.textContent = new Date().getFullYear();
+}
