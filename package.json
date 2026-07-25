@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Marketing site for K2G LLC",
   "scripts": {
-    "start": "serve -s . -l ${PORT:-3000}"
+    "start": "serve -l ${PORT:-3000}"
   },
   "dependencies": {
     "serve": "^14.2.5"
