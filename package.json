@@ -3,11 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "description": "Marketing site for K2G LLC",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npx -y serve . -l ${PORT:-3000}"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "serve": "^14.2.5"
   }
 }
